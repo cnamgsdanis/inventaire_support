@@ -51,7 +51,7 @@ git commit -m "Message clair et précis"
 git push origin ma-branche
 ```
 
-### 4. Créer une Pull Request (PR)
+### 4. Créer une Pull Request (PR) (Pas obligatoire ou demandez à Danis)
 
 Une fois une fonctionnalité terminée sur sa branche :
 1. Aller sur GitHub → onglet **Pull requests** → **New pull request**
