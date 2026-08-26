@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire Produit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <div class="card shadow" style="max-width: 500px; margin: auto;">
+        <div class="card-header bg-success text-white">
+            <h3 th:text="${produit.id} ? '✏️ Modifier le produit' : '➕ Ajouter un produit'"></h3>
+        </div>
+        <div class="card-body">
+            <!-- Formulaire qui envoie vers /sauvegarder -->
+            <form action="/sauvegarder" method="post">
+                <!-- Champ caché pour l'ID (pour la modification) -->
+                <input type="hidden" th:field="*{produit.id}" />
+
+                <div class="mb-3">
+                    <label class="form-label">Nom du produit</label>
+                    <input type="text" class="form-control" th:field="*{produit.nom}" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Prix (€)</label>
+                    <input type="number" step="0.01" class="form-control" th:field="*{produit.prix}" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Quantité en stock</label>
+                    <input type="number" class="form-control" th:field="*{produit.quantite}" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">💾 Sauvegarder</button>
+                <a href="/" class="btn btn-secondary w-100 mt-2">⬅️ Retour à la liste</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
